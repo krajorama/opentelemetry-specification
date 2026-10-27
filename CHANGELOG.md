@@ -11,6 +11,41 @@ release.
 
 ### Traces
 
+### Metrics
+
+- Add the OptIn advisory parameter and enabled View stream parameter.
+  ([#4809](https://github.com/open-telemetry/opentelemetry-specification/pull/4809))
+
+### Logs
+
+### Baggage
+
+### Profiles
+
+### Resource
+
+### Entities
+
+### Common
+
+### OpenTelemetry Protocol
+
+### Compatibility
+
+### SDK Configuration
+
+### Supplementary Guidelines
+
+### OTEPs
+
+## v1.62.0 (2026-10-21)
+
+### Context
+
+### Traces
+
+- Add `Sampler.Shutdown` operation.
+  ([#5335](https://github.com/open-telemetry/opentelemetry-specification/pull/5335))
 - Clarify that calls to the Development `SpanProcessor.OnEnding` method are not
   allowed after `Shutdown`.
   ([#5316](https://github.com/open-telemetry/opentelemetry-specification/pull/5316))
@@ -23,6 +58,8 @@ release.
 
 ### Logs
 
+- Extend the ETW example mapping with the optional `etw.provider.name`
+  attribute and describe its availability.
 - Add systemd-journald example mapping to the logs data model appendix and align syslog mapping.
   ([#4995](https://github.com/open-telemetry/opentelemetry-specification/pull/4995))
 
@@ -32,7 +69,8 @@ release.
 
 ### Resource
 
-- Update resource detectors to generate entities and indicate resource detectors should be entity-aware unless new `OTEL_EXPERIMENTAL_ENTITIES_ENABLED != true`.
+- Update resource detectors to generate entities and indicate resource detectors should be entity-aware
+  unless new `OTEL_EXPERIMENTAL_ENTITIES_ENABLED != true`.
   ([#5147](https://github.com/open-telemetry/opentelemetry-specification/pull/5147))
 
 ### Entities
@@ -44,7 +82,15 @@ release.
 
 ### Common
 
+- Stabilize Attribute and Attribute Collection representation for non-OTLP.
+  ([#5149](https://github.com/open-telemetry/opentelemetry-specification/pull/5149))
+
 ### OpenTelemetry Protocol
+
+- Clarify that the OTLP exporter timeout bounds the entire batch export,
+  including all request attempts and waits between retries, and that earlier
+  caller deadlines take precedence.
+  ([#5347](https://github.com/open-telemetry/opentelemetry-specification/issues/5347))
 
 ### Compatibility
 
@@ -52,6 +98,9 @@ release.
   ([#5213](https://github.com/open-telemetry/opentelemetry-specification/pull/5213))
 - Stabilize Prometheus Info metric transformation.
   ([#5211](https://github.com/open-telemetry/opentelemetry-specification/pull/5211))
+- Clarify the conversion of Prometheus labels and the `target` info metric to
+  OTLP resources, data point attributes and resource attributes.
+  ([#5356](https://github.com/open-telemetry/opentelemetry-specification/pull/5356))
 
 ### SDK Configuration
 
@@ -62,7 +111,16 @@ release.
 
 ### Supplementary Guidelines
 
+- Allow narrowly scoped security-related changes to stable SDK and Contrib
+  behavior, configuration defaults, supported values, and emitted telemetry
+  without a major version bump, while preserving API compatibility and requiring
+  release notes describing the security rationale, user impact, and migration.
+  ([#5357](https://github.com/open-telemetry/opentelemetry-specification/pull/5357))
+
 ### OTEPs
+
+- Add OTEP proposing a top-level span type field in API, SDK, and OTLP.
+  ([#5233](https://github.com/open-telemetry/opentelemetry-specification/pull/5233))
 
 ## v1.61.0 (2026-09-14)
 
@@ -134,8 +192,6 @@ release.
 
 - Thread Context: Sharing Thread-Level Information with the OpenTelemetry eBPF Profiler.
   ([#4947](https://github.com/open-telemetry/opentelemetry-specification/pull/4947))
-- Add OTEP proposing a top-level span type field in API, SDK, and OTLP.
-  ([#5233](https://github.com/open-telemetry/opentelemetry-specification/pull/5233))
 
 ## v1.59.0 (2026-07-10)
 
@@ -220,8 +276,6 @@ release.
 - Add in-development guidance recommending a JSON object as the string
   representation for an attribute collection in non-OTLP protocols.
   ([#5110](https://github.com/open-telemetry/opentelemetry-specification/pull/5110))
-- Stabilize Attribute and Attribute Collection representation for non-OTLP.
-  ([#5149](https://github.com/open-telemetry/opentelemetry-specification/pull/5149))
 
 ### Compatibility
 
